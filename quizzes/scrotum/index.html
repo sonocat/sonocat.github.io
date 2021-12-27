@@ -7,7 +7,7 @@
 		
 		<style type="text/css">
 			body {
-				background: #e1cb06 url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/quizzes/quizbg.jpg") center;
+				background: #e1cb06 url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/quizzes/quizbg.jpg") center top;
 				text-align: center;
 			}
 			ol, ul {
@@ -16,15 +16,16 @@
 			#frame {
 				max-width: 700px;
 				width: auto;
-				border: 1px solid #ccc;
+				border: 7px solid #fbec69;
 				background: #fff;
-				padding: 11px;
+				padding: 9px;
 				margin: 11px auto;
 				text-align: left;
 			}
 			h1 {
 				font: bold 19px Arial;
-				color: #000;
+				color: #9e4913;
+				background-image: linear-gradient(to right, #8cd8fb, #fff);
 				text-transform: uppercase;
 				line-height: 33px; 
 				padding-left: 9px;
@@ -40,7 +41,7 @@
 			p.pager {
 				margin: 5px 9px;
 				font: bold 17px Arial;
-				color: #999;
+				color: #728b6d;
 			}
 			p.source {
 				text-align: center;
@@ -172,42 +173,78 @@
 			var quiztitle = "Scrotal Quiz";
 			var quiz = [
 				{
-					"question" : "What might you expect to find in a patient s/p vasectomy?",
-					"image" : "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
-					"source" : "Blah blah blah",
+					"question" : "What the frequency is this?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/11026975/2fc9d9c166c2cb0a51153cf087fce6_big_gallery.Jpeg",
+					"source" : "https://doi.org/10.53347/rID-34273",
 					"choices" : [
-						"Epididymal mass",
-						"Varicoceles",
-						"Dilated epididymis",
-						"Both epididymal mass and dilated epididymis"
+						"Mediastinum testis",
+						"Tubular ectasia",
+						"Spermatocele"
 					],
-					"correct" : "Both epididymal mass and dilated epididymis",
-					"explanation" : "Surgical history is important and you should know when to ask them. If you find an enlarged and cystic epididymis, or an epididymal mass, ask the patient if he has had a vasectomy. Read more about sperm granuloma and tubular ectasia of epididymis. (Insert images below).",
+					"correct" : "Tubular ectasia",
+					"explanation" : "This is tubular ectasia of the rete testis (which can also occur in the epididymis). Put a color box on it, but don't measure.",
 				},
 				{
-					"question" : "Where is a sperm granuloma found? ",
-					"image" : "http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/US_%242_obverse-high.jpg/320px-US_%242_obverse-high.jpg",
-					"soure" : "",
-					"choices" : [
-						"Within testis",
-						"Within epididymis",
-						"Within hydrocele, free floating"
-					],
-					"correct" : "Within epididymis",
-					"explanation" : "Read about sperm granuloma (opens in new window).",
-				},
-				{
-					"question" : "This is the sagittal midline testis image of a fertility patient, a new finding since his last prior ultrasound. What should be your suspicion, after confirming the patient’s medical history?",
+					"question" : "Above what diameter of the pampiniform plexus vein is considered a borderline varicocele?",
 					"image" : "",
 					"source" : "",
 					"choices" : [
-						"S/P varicocelectomy ",
-						"S/P microTESE",
-						"Testicular atrophy",
-						"Testicular lobulation"
+						"0.15 cm",
+						"0.25 cm",
+						"0.35 cm"
 					],
-					"correct" : "S/P microTESE",
-					"explanation" : "Since the finding is new, you should suspect that this is a scar from a recent procedure or biopsy. Testicular lobulation looks very similar and can cause infertility, but is congenital and would have been seen in previous imaging. Testicular atrophy is seen in older men, and has the appearance of multiple hypoechoic striations.",
+					"correct" : "0.25 cm",
+					"explanation" : "A varicocele is above 0.25 cm diameter. Something to remember!",
+				},
+				{
+					"question" : "On which side is varicocele more common?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"Right",
+						"Left"
+					],
+					"correct" : "Left",
+					"explanation" : "Left side is more common due to a few anatomic factors. Varicoceles are found 85% on the left, and the remaining 15% are bilateral.",
+				},
+				{
+					"question" : "What is the big deal about a varicocele found on the right side only?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"Concern for retroperitoneal mass",
+						"Nutcracker syndrome, or compression of the left renal vein by the SMA",
+						"May Thurner syndrome, or compression of the left iliac vein by the right iliac artery",
+						"Concern for infertility"
+					],
+					"correct" : "Concern for retroperitoneal mass",
+					"explanation" : "A right side only varicocele is very unusual, and is linked to compression of right spermatic vein by a mass (or the patient has situs inversus). You should be sure this is not due to your own scanning technique, otherwise your patient may be sent for CT (true story).",
+				},
+				{
+					"question" : "You find a hypoechoic, avascular mass within the epididymal tail shown below. Because you are a SonoCat, you asked and confirmed that the patient is s/p vasectomy. This mass is probably a:",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6786097/bin/1677-6119-ibju-45-03-0634-gf01.jpg",
+					"source" : "https://www.scielo.br/j/ibju/a/YDrKfYhrWC3SQpnqBHFBvgh",
+					"choices" : [
+						"Sperm granuloma",
+						"Complex spermatocele",
+						"Adenomatoid tumor",
+						"Tubular ectasia of epididymis"
+					],
+					"correct" : "Sperm granuloma",
+					"explanation" : "This is likely a sperm granuloma. Vasectomy patients can also present with dilated epididymides (tubular ectasia) bilaterally.",
+				},
+				{
+					"question" : "What the frame rate is this?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/56458918/Escrotolito_3_big_gallery.jpeg",
+					"source" : "https://doi.org/10.53347/rID-95161",
+					"choices" : [
+						"Calcified epididymal appendix",
+						"Scrotolith",
+						"Testicular microlithiasis",
+						"Calcification of the tunica"
+					],
+					"correct" : "Scrotolith",
+					"explanation" : "It's a scrotolith, aka a scrotal pearl. Put a color box on it, but don't measure. If there is enough hydrocele, you can catch a cine clip of it moving.",
 				},
 			];
 			
@@ -234,14 +271,16 @@
 			function nextQuestion() {
 				submt = true;
 				$('#explanation').empty();
-				$('#source').remove();
+				$('#source').empty();
 				$('#question').text(quiz[currentquestion]['question']);
 				$('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
 				if (quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != "") {
 					if ($('#question-image').length == 0) {
 						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
 					} else {
 						$('#question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
 					}
 				} else {
 					$('#question-image').remove();
@@ -313,6 +352,8 @@
 				$('#question').empty();
 				$('#choice-block').empty();
 				$('#submitbutton').remove();
+				$('#question-image').remove();
+				$('#source').empty();
 				$('#question').text("You got " + score + " out of " + quiz.length + " correct.");
 				$(document.createElement('h2')).css({
 					'text-align': 'center',
@@ -338,7 +379,6 @@
 						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
 						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
 					}
-
 
 					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
 					//questions holder
