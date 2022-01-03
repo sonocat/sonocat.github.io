@@ -392,6 +392,8 @@
 						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
 						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
 					}
+					
+					$(document.createElement('p')).addClass('source').attr('id', 'source').appendTo('#frame');
 
 					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
 					//questions holder
