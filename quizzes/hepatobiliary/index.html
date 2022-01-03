@@ -210,7 +210,7 @@
 				{
 					"question" : "What is the finding of this transverse right liver image?",
 					"image" : "https://upload.wikimedia.org/wikipedia/commons/9/92/Ultrasound_Scan_ND_0106133352_1338200.png",
-					"source" : "https://commons.wikimedia.org/wiki/File:Ultrasound_Scan_ND_0106133352_1338200.png",
+					"source" : "Nevit Dilmen, https://commons.wikimedia.org/wiki/File:Ultrasound_Scan_ND_0106133352_1338200.png, CC BY-SA 3.0",
 					"choices" : [
 						"Normal",
 						"Hepatitis",
@@ -392,6 +392,8 @@
 						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
 						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
 					}
+					
+					$(document.createElement('p')).addClass('source').attr('id', 'source').appendTo('#frame');
 
 					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
 					//questions holder
