@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SonoCat - Practical Guide to General Sonography</title>
+		
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		
+		<style type="text/css">
+			body {
+				background: #F9E324 url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/quizzes/quizbg.jpg") center top;
+				text-align: center;
+			}
+			ol, ul {
+				list-style: none;
+			}
+			#frame {
+				max-width: 700px;
+				width: auto;
+				border: 7px solid #fbec69;
+				background: #fff;
+				padding: 9px;
+				margin: 15px auto;
+				text-align: left;
+			}
+			h1 {
+				font: bold 19px Arial;
+				color: #9e4913;
+				background-image: linear-gradient(to right, #8cd8fb, #fff);
+				text-transform: uppercase;
+				line-height: 33px; 
+				padding-left: 9px;
+				margin: 0;
+				border-bottom: 2px solid #000;
+			}
+			h2 {
+				font: 21px "Times New Roman";
+				padding: 0;
+				margin: 15px 0;
+				text-align: center;
+			}
+			p.pager {
+				margin: 5px 9px;
+				font: bold 17px Arial;
+				color: #728b6d;
+			}
+			p.source {
+				text-align: center;
+				font: 12px "Times New Roman";
+			}
+			img.question-image {
+				display: block;
+				max-width: 250px;
+				margin: 10px auto;
+				border: 1px solid #ccc;
+				width: 100%;
+				height: auto;
+			}
+			#choice-block {
+				display: block;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#submitbutton {
+				background: #5a6b8c;
+			}
+			#submitbutton:hover {
+				background: #7b8da6;
+			}
+			#explanation {
+				margin: 0 auto;
+				padding: 20px;
+				width: 75%;
+			}
+			.choice-box {
+				display: block;
+				font: 15px Arial;
+				text-align: center;
+				margin: 8px auto;
+				padding: 10px 0;
+				border: 1px solid #666;
+				cursor: pointer;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+		</style>
+		
+		<script id="insert"></script>
+		<script src="/stringify.js" charset="utf-8"></script>
+		<script>
+			const customConsole = (w) => {
+				const pushToConsole = (payload, type) => {
+					w.parent.postMessage({
+						console: {
+							payload: stringify(payload),
+							type: type
+						}
+				}, "*")
+			}
+			w.onerror = (message, url, line, column) => {
+				// the line needs to correspond with the editor panel
+				// unfortunately this number needs to be altered every time this view is changed
+				line = line - 70
+				if (line < 0){
+					pushToConsole(message, "error")
+				} else {
+					pushToConsole(`[${line}:${column}] ${message}`, "error")
+				}
+			}
+				
+			let console = (function(systemConsole){
+				return {
+					log: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "log")
+						systemConsole.log.apply(this, args)
+					},
+					info: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "info")
+						systemConsole.info.apply(this, args)
+					},
+					warn: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "warn")
+						systemConsole.warn.apply(this, args)
+					},
+					error: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "error")
+						systemConsole.error.apply(this, args)
+					},
+					system: function(arg){
+						pushToConsole(arg, "system")
+					},
+					clear: function(){
+						systemConsole.clear.apply(this, {})
+					},
+					time: function(){
+						let args = Array.from(arguments)
+						systemConsole.time.apply(this, args)
+					},
+					assert: function(assertion, label){
+						if (!assertion){
+							pushToConsole(label, "log")
+					}
+						
+					let args = Array.from(arguments)
+					systemConsole.assert.apply(this, args)
+				}
+			}
+		}(window.console))
+				
+				window.console = { ...window.console, ...console } 
+				console.system("Running fiddle")
+		}
+		if (window.parent){
+			customConsole(window)
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<div id="frame" role="content">
+		
+		<script type="text/javascript">//<![CDATA[
+			
+			var quiztitle = "Liver Quiz";
+			var quiz = [
+				{
+					"question" : "What is the normal portal vein velocity?",
+					"image" : "https://theawkwardyeti.com/wp-content/uploads/2014/12/NewYearsEve.png",
+					"source" : "https://theawkwardyeti.com",
+					"choices" : [
+						"10-20 cm/sec",
+						"20-40 cm/sec",
+						"40-50 cm/sec"
+					],
+					"correct" : "20-40 cm/sec",
+					"explanation" : "It's 20-40 cm/sec.",
+				},
+				{
+					"question" : "How would you describe the portal vein velocity of a cirrhotic liver?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"Increased velocity",
+						"Normal velocity",
+						"Decreased velocity leading to flow reversal"
+					],
+					"correct" : "Decreased velocity leading to flow reversal",
+					"explanation" : "The portal vein velocity is decreased. Cirrhosis of the liver causes it to become stiff, increasing the pressure against portal flow into the liver (portal hypertension). As cirrhosis progresses, the portal flow will reverse.",
+				},
+				{
+					"question" : "Based on this liver finding, what is an expected presenting symptom?",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7918928/bin/cancers-13-00790-g001.jpg",
+					"source" : "https://doi.org/10.3390/cancers13040790",
+					"choices" : [
+						"Fever",
+						"RUQ pain",
+						"Jaundice",
+						"Vomiting"
+					],
+					"correct" : "RUQ pain",
+					"explanation" : "This is an echogenic liver as seen in fatty liver disease. Patients can present with constant RUQ pain or pressure when the liver becomes enlarged. Otherwise, a fatty liver is usually asymptomatic.",
+				},
+				{
+					"question" : "Based on this liver appearance, what is a related sonographic finding?",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4748203/bin/crj-03-124-g002.jpg",
+					"source" : "https://dx.doi.org/10.14309%2Fcrj.2016.21",
+					"choices" : [
+						"Hepatomegaly",
+						"Pneumobilia",
+						"Reversed portal flow",
+						"Gallstones"
+					],
+					"correct" : "Reversed portal flow",
+					"explanation" : "This is advanced cirrhotic liver, with findings including reversed portal flow, ascites (as shown), and nodular liver appearance.",
+				},
+				{
+					"question" : "What is the finding in this liver of a patient with RUQ pain?",
+					"image" : "https://upload.wikimedia.org/wikipedia/commons/9/92/Ultrasound_Scan_ND_0106133352_1338200.png",
+					"source" : "Nevit Dilmen, https://commons.wikimedia.org/wiki/File:Ultrasound_Scan_ND_0106133352_1338200.png",
+					"choices" : [
+						"Unremarkable",
+						"Hepatitis (starry sky appearance)",
+						"Intrahepatic biliary dilatation",
+						"Fatty liver"
+					],
+					"correct" : "Unremarkable",
+					"explanation" : "This is a normal liver. Tehe!",
+				},
+				{
+					"question" : "What should you ask an asymptomatic patient with this liver finding?",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6032663/bin/jbsr-99-1-849-g1.jpg",
+					"source" : "http://doi.org/10.5334/jbr-btr.849",
+					"choices" : [
+						"Are you okay?",
+						"Are you a heavy drinker?",
+						"Did you undergo any abdominal procedures?",
+						"Did you have recent weight loss?"
+					],
+					"correct" : "Did you undergo any abdominal procedures?",
+					"explanation" : "This finding is called pneumobilia (air in the bile ducts), commonly caused by surgical procedures involving the biliary system. Some example procedures are cholecystectomy, endoscopy, or the Whipple procedure (pancreas head resection and biliary reconstruction).",
+				},
+				{
+					"question" : "What is this liver finding, with absent color flow?",
+					"image" : "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/oncolo/11/8/10.1634_theoncologist.11-8-913/3/m_oncolo_11_8_913_f3.jpeg?Expires=1643211964&Signature=yGbjjpIfxpvxj6Ieu-JXXSlfMXAgkl3Y7Qp0BEoGwbCxJoA8cZQQzmkCCM69kkfC72vYC61aLOLRxYpHQ6bNdgT9kpc8bbGcJjA12V5RFkGksHlb4mi7I6YouuuXc0BfSKq~CBI12VRdB9onPmTeGbtaKGcV~aYO6K3dmjp6h~P~3p3KI6xWlif20~85424Lm1zE~3crR-dk72~6ooFJDuRIDLyyTVAG1~TyYMjxay5A0ROghShVFMTvybWeJ46qkzXU2j8pjUdCKCLOMzWtgjqkYBfiQCq5Utxn-LPsLqXuQOFhzs4rtsj7bFIDG3oZyEWwi2V2pBXno3IiWoIp2Q__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA",
+					"source" : "https://academic.oup.com/oncolo/article/11/8/913/6397116",
+					"choices" : [
+						"Portal hypertension",
+						"Portal vein thrombosis",
+						"Portal vein collaterals",
+						"Dilated intrahepatic ducts"
+					],
+					"correct" : "Dilated intrahepatic ducts",
+					"explanation" : "This shows the dilated intrahepatic ducts, which could be due to an obstruction by a mass or bile duct stone.",
+				},
+			];
+			
+			var currentquestion = 0,
+				score = 0,
+				submt = true,
+				picked;
+			
+			jQuery(document).ready(function ($) {
+			
+			function htmlEncode(value) {
+				return $(document.createElement('div')).text(value).html();
+			}
+			
+			function addChoices(choices) {
+				if (typeof choices !== "undefined" && $.type(choices) == "array") {
+					$('#choice-block').empty();
+					for (var i = 0; i < choices.length; i++) {
+						$(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#choice-block');
+					}
+				}
+			}
+			
+			function nextQuestion() {
+				submt = true;
+				$('#explanation').empty();
+				$('#source').empty();
+				$('#question').text(quiz[currentquestion]['question']);
+				$('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+				if (quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != "") {
+					if ($('#question-image').length == 0) {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					} else {
+						$('#question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					}
+				} else {
+					$('#question-image').remove();
+				}
+				addChoices(quiz[currentquestion]['choices']);
+				setupButtons();
+			}
+			
+			function processQuestion(choice) {
+				if (quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']) {
+					$('.choice').eq(choice).css({
+ 						'background-color': '#50D943'
+					});
+					$('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+					score++;
+				} else {
+					$('.choice').eq(choice).css({
+						'background-color': '#D92623'
+					});
+					$('#explanation').html('<strong>Incorrect.</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+				}
+				currentquestion++;
+				$('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function () {
+					if (currentquestion == quiz.length) {
+						endQuiz();
+					} else {
+						$(this).text('Check Answer').css({
+						'color': '#222'
+						}).off('click');
+						nextQuestion();
+					}
+				})
+			}
+			
+			function setupButtons() {
+				$('.choice').on('mouseover', function () {
+					$(this).css({
+						'background-color': '#e1e1e1'
+					});
+				});
+				$('.choice').on('mouseout', function () {
+					$(this).css({
+						'background-color': '#fff'
+					});
+				})
+				$('.choice').on('click', function () {
+					picked = $(this).attr('data-index');
+					$('.choice').removeAttr('style').off('mouseout mouseover');
+					$(this).css({
+						'border-color': '#222',
+						'font-weight': 700,
+						'background-color': '#c1c1c1'
+					});
+					if (submt) {
+						submt = false;
+						$('#submitbutton').css({
+							'color': '#000'
+						}).on('click', function () {
+							$('.choice').off('click');
+							$(this).off('click');
+							processQuestion(picked);
+						});
+					}
+				})
+			}
+			
+			function endQuiz() {
+				$('#explanation').empty();
+				$('#question').empty();
+				$('#choice-block').empty();
+				$('#submitbutton').remove();
+				$('#question-image').remove();
+				$('#source').empty();
+				$('#question').text("You got " + score + " out of " + quiz.length + " correct.");
+				$(document.createElement('h2')).css({
+					'text-align': 'center',
+					'font-size': '4em'
+				}).text(Math.round(score / quiz.length * 100) + '%').insertAfter('#question');
+			}
+			
+			function init() {
+				//add title
+				if (typeof quiztitle !== "undefined" && $.type(quiztitle) === "string") {
+					$(document.createElement('h1')).text(quiztitle).appendTo('#frame');
+				} else {
+					$(document.createElement('h1')).text("Quiz").appendTo('#frame');
+				}
+				//add pager and questions
+				if (typeof quiz !== "undefined" && $.type(quiz) === "array") {
+					//add pager
+					$(document.createElement('p')).addClass('pager').attr('id', 'pager').text('Question 1 of ' + quiz.length).appendTo('#frame');
+					//add first question
+					$(document.createElement('h2')).addClass('question').attr('id', 'question').text(quiz[0]['question']).appendTo('#frame');
+					//add image if present
+					if (quiz[0].hasOwnProperty('image') && quiz[0]['image'] != "") {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
+						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
+					}
+					
+					$(document.createElement('p')).addClass('source').attr('id', 'source').appendTo('#frame');
+
+					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
+					//questions holder
+					$(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+					//add choices
+					addChoices(quiz[0]['choices']);
+					//add submit button
+					$(document.createElement('div')).addClass('choice-box').attr('id', 'submitbutton').text('Check Answer').css({
+						'font-weight': 700,
+						'color': '#222',
+						'padding': '30px 0'
+					}).appendTo('#frame');
+					setupButtons();
+				}
+			}
+			init();
+		});
+	//]]></script>
+		
+		<script>
+			// tell the embed parent frame the height of the content
+			if (window.parent && window.parent.parent){
+				window.parent.parent.postMessage(["resultsFrame", {
+					height: document.body.getBoundingClientRect().height,
+					slug: "7Du6N"
+				}], "*")
+			}
+			// always overwrite window.name, in case users try to set it manually
+			window.name = "result"
+		</script>
+		
+		<script>
+			let allLines = []
+			
+			window.addEventListener("message", (message) => {
+				if (message.data.console){
+					let insert = document.querySelector("#insert")
+					allLines.push(message.data.console.payload)
+					insert.innerHTML = allLines.join(";\r")
+					
+					let result = eval.call(null, message.data.console.payload)
+					if (result !== undefined){
+						console.log(result)
+					}
+				}
+			})
+		</script>
+	</div>
+		
+	</body>
+</html>
