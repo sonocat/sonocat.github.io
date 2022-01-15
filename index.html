@@ -1,45 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SonoCat - Practical Guide to General Sonography</title>
-    <style>
-      body {
-        font: 25px Arial; 
-        text-align:center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div style="margin:30px auto; width:500px; text-align:left;">
-      
-      <h1>SonoCat</h1>
-      These are some protocols at my facility. 
-      
-      <ul>
-        Protocols
-        <li><a href="/protocols/abdomen" target="_blank">Abdomen Complete</a></li>
-        <li><a href="/protocols/renal" target="_blank">Renal</a></li>
-        <li><a href="/protocols/carotid" target="_blank">Carotid</a></li>
-        <li><a href="/protocols/legvenous" target="_blank">Lower Extremity Venous</a></li>
-        <li><a href="/protocols/armvenous" target="_blank">Upper Extremity Venous</a></li>
-        <li>Thyroid</li>
-        <li>Renal Artery Stenosis</li>
-        <li><a href="/protocols/aorta" target="_blank">Aorta</a></li>
-        <li>TIPS</li>
-        <li>Liver Transplant</li>
-        <li>Pelvic Complete</li>
-        <li>Scrotum</li>
-        <li>Hernia</li>
-        (To do: "Lite" version protocols with fewer images to load)
-      </ul>
-      
-      <ul>
-        Quizzes
-        <li><a href="/quizzes/liver" target="_blank">Liver</a></li>
-        <li><a href="/quizzes/scrotum" target="_blank">Scrotum</a></li>
-        Questions intended to contain useful knowledge and common scenarios. Not written for registry review.
-      </ul>
-    </div>
-  </body>
+	<head>
+		<title>SonoCat - Practical Guide to General Sonography</title>
+		
+		<style>
+			body {
+				text-align: center;
+				background: #888;
+			}
+			#container {
+				margin: 13px auto;
+				width: 800px;
+				border: 11px solid #eee;
+				background-image: linear-gradient(#1E1E4A, #eee);
+				font: 19px "Times New Roman";
+				text-align: left;
+			}
+			h1 {
+				margin: 0;
+				padding: 0;
+				font: bold 33px Arial;
+				color: #000055;
+				line-height: 39px;
+			}
+			ul {
+				margin: 0;
+			}
+			#content {
+				padding: 0 35px;
+			}
+			#sonocat {
+				display: block;
+				min-height: 584px;
+				background: url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/sonocat.png") center top no-repeat;
+			}
+			#intro {
+				display: block;
+				padding: 475px 150px 25px 35px;
+			}
+			.box {
+				display: inline-block; 
+				padding-bottom: 25px;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<div id="container">
+			<span id="sonocat">
+				<span id="intro">
+					<h1>SonoCat</h1> This is a personal webpage and resource for learning medical sonography only. Click below to view my illustrated ultrasound protocols, and try out the quizzes for your knowledge.
+				</span>
+			</span>
+			
+			<div id="content">
+				
+				<span class="box" style="width:50%; float:left;">
+					<h1>Protocols</h1>
+					<ul>
+						<li><a href="/protocols/abdomen">Abdomen Complete</a></li>
+						<li><a href="/protocols/renal">Renal</a></li>
+						<li><a href="/protocols/legvenous">Lower Extremity Venous</a></li>
+						<li><a href="/protocols/armvenous">Upper Extremity Venous</a></li>
+						<li><a href="/protocols/carotid">Carotid</a></li>
+						<li><a href="/protocols/aorta">Aorta</a></li>
+					</ul>
+				</span>
+				<span class="box" style="width:50%; float:left;">
+					<h1>Quizzes</h1>
+					<ul>
+						<li><a href="/quizzes/liver">Liver</a></li>
+						<li><a href="/quizzes/scrotum">Scrotum</a></li>
+						Questions intended to contain useful knowledge and common scenarios. Not written for registry review. 
+					</ul>
+				</span>
+				
+				
+				
+				
+				
+				<span style="display:block; clear:both;"></span>
+			</div>
+		</div>
+	</body>
 </html>
