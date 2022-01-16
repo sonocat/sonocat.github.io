@@ -63,7 +63,7 @@
 			}
 			.tcg li a {
 				display: inline-block;
-				padding: 0 20px;
+				padding: 0 15px;
 				border-right: 17px solid #7878A9;
 				font: 18px "Times New Roman";
 				color: #000;
@@ -71,8 +71,20 @@
 				line-height: 26px;
 			}
 			.tcg li a:hover {
-				padding: 0 40px 0 20px;
+				padding: 0 40px 0 15px;
 				color: #DB0000;
+			}
+			.tcg li a.lite {
+				float: right;
+				padding: 0;
+				border: 0; 
+				font: 16px "Times New Roman";
+				color: #888;
+				line-height: 26px;
+			}
+			.tcg li a.lite:hover {
+				padding: 0;
+				color: #000;
 			}
 			.quiz li {
 				list-style: inside disc;
@@ -94,14 +106,14 @@
 				<span class="box" style="width:50%; float:left;">
 					<h1>Protocols</h1>
 					<ul class="tcg">
-						<li><a href="/protocols/abdomen">Abdomen Complete</a></li>
-						<li><a href="/protocols/renal">Renal</a></li>
-						<li><a href="/protocols/legvenous">Lower Extremity Venous</a></li>
-						<li><a href="/protocols/armvenous">Upper Extremity Venous</a></li>
-						<li><a href="/protocols/carotid">Carotid</a></li>
-						<li><a href="/protocols/aorta">Aorta</a></li>
+						<li><a href="/protocols/abdomen">Abdomen Complete</a><a href="/protocols/lite/abdomen" class="lite">Lite</a></li>
+						<li><a href="/protocols/renal">Renal</a><a href="/protocols/lite/renal" class="lite">Lite</a></li>
+						<li><a href="/protocols/legvenous">Lower Extremity Venous</a><a href="/protocols/lite/legvenous" class="lite">Lite</a></li>
+						<li><a href="/protocols/armvenous">Upper Extremity Venous</a><a href="/protocols/lite/armvenous" class="lite">Lite</a></li>
+						<li><a href="/protocols/carotid">Carotid</a><a href="/protocols/lite/carotid" class="lite">Lite</a></li>
+						<li><a href="/protocols/aorta">Aorta</a><a href="/protocols/lite/aorta" class="lite">Lite</a></li>
 					</ul>
-					More to be added, including "lite" version protocols with fewer images to load. 
+					Click on "Lite" to view a version of the protocol without ultrasound images. 
 				</span>
 				<span class="box" style="width:50%; float:left;">
 					<h1>Quizzes</h1>
