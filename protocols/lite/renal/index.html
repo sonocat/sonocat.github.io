@@ -36,9 +36,9 @@
 			}
 			
 			.protocol_box h1 {
-				background-image: linear-gradient(to right, #003, #fff);
+				background-image: linear-gradient(to right, #ddd, #fff);
 				font: bold 19px Arial;
-				color: yellow;
+				color: #005;
 				text-transform: uppercase;
 				line-height: 33px; 
 				padding-left: 9px;
@@ -79,46 +79,30 @@
 			.patient_male {
 				display: block;
 				float: right;
-				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev1.png") -50px -100px; 
+				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev1.png") -50px -100px !important; 
 				width: 240px;
 				height: 240px;
 				border: 0;
+				-webkit-print-color-adjust: exact !important;
+				color-adjust: exact !important;
 			}
 			.patient_male2 {
 				display: block;
 				float: right;
-				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev2.png") -45px -99px; 
+				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev2.png") -45px -99px !important; 
 				width: 240px;
 				height: 240px;
 				border: 0;
+				-webkit-print-color-adjust: exact !important;
+				color-adjust: exact !important;
 			}
 			.probe {
 				display: block;
 				width: 240px;
 				height: 240px;
-      }
-      @media print {
-        			.patient_male {
-					display: block;
-			        	float: right;
-		        		content: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev1.png") -50px -100px; 
-			        	width: 240px;
-        				height: 240px;
-		        		border: 0;
-	        		}
-		        	.patient_male2 {
-			        	display: block;
-        				float: right;
-		        		content: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev2.png") -45px -99px; 
-	        			width: 240px;
-		        		height: 240px;
-		        		border: 0;
-		        	}
-	        		.probe {
-	        			display: block;
-		        		width: 240px;
-	        			height: 240px;
-             }
+				-webkit-print-color-adjust: exact !important;
+				color-adjust: exact !important;
+			}
       }
 		</style>
 		<script type="text/javascript">
