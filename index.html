@@ -12,15 +12,19 @@
 				margin: 13px auto;
 				width: 800px;
 				border: 11px solid #eee;
-				background-image: linear-gradient(#1E1E4A, #eee);
+				background-image: linear-gradient(#eee, #9999B6);
 				font: 19px "Times New Roman";
+				color: #000;
 				text-align: left;
+			}
+			a {
+				color: #007;
 			}
 			h1 {
 				margin: 0;
 				padding: 0;
 				font: bold 33px Arial;
-				color: #000055;
+				color: #005;
 				line-height: 39px;
 			}
 			ul {
@@ -42,6 +46,36 @@
 				display: inline-block; 
 				padding-bottom: 25px;
 			}
+			ul {
+				margin: 0 25px 5px 0;
+				padding: 0;
+			}
+			.tcg {
+				padding-bottom: 15px;
+				background: #9999B6;
+			}
+			.tcg li {
+				margin: 0 15px;
+				padding: 7px 0 0 0;
+				list-style: none;
+				border-bottom: 3px solid #505050;
+			}
+			.tcg li a {
+				display: inline-block;
+				padding: 0 20px;
+				border-right: 17px solid #7878A9;
+				font: 18px "Times New Roman";
+				color: #000;
+				text-decoration: none;
+				line-height: 26px;
+			}
+			.tcg li a:hover {
+				padding: 0 20px 0 40px;
+				color: #DB0000;
+			}
+			.quiz li {
+				list-style: inside disc;
+			}
 		</style>
 		
 	</head>
@@ -58,7 +92,7 @@
 				
 				<span class="box" style="width:50%; float:left;">
 					<h1>Protocols</h1>
-					<ul>
+					<ul class="tcg">
 						<li><a href="/protocols/abdomen">Abdomen Complete</a></li>
 						<li><a href="/protocols/renal">Renal</a></li>
 						<li><a href="/protocols/legvenous">Lower Extremity Venous</a></li>
@@ -66,14 +100,15 @@
 						<li><a href="/protocols/carotid">Carotid</a></li>
 						<li><a href="/protocols/aorta">Aorta</a></li>
 					</ul>
+					More to be added, including "lite" version protocols with fewer images to load. 
 				</span>
 				<span class="box" style="width:50%; float:left;">
 					<h1>Quizzes</h1>
-					<ul>
+					<ul class="quiz">
 						<li><a href="/quizzes/liver">Liver</a></li>
 						<li><a href="/quizzes/scrotum">Scrotum</a></li>
-						Questions intended to contain useful knowledge and common scenarios. Not written for registry review. 
 					</ul>
+					Questions intended to contain useful knowledge and common scenarios. Not written for registry review. 
 				</span>
 				
 				
