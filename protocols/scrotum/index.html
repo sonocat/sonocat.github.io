@@ -51,57 +51,45 @@
 				padding: 0 29px;
 			}
 			
-			.ultrasound_images {
+			.ultrasound {
 				display: block;
-				clear: both;
-				margin: 19px 0;
-				background: #000;
+				float: right;
+				margin: 0 0 0 19px;
+				width: 350px;
 				text-align: center;
 				color: #fff;
 			}
 			
-			.ultrasound_images .top {
+			.ultrasound .top {
+				display: block;
+				height: 17px;
+			}
+			
+			.ultrasound .center {
+				display: block;
+				padding: 5px 5px 0 5px;
+				background: #000;
+			}
+			
+			.ultrasound .bottom {
 				display: block;
 				height: 25px;
-				background-image: linear-gradient(#fff, #000);
+				background-image: linear-gradient(rgba(0,0,0,1), rgba(255,255,255,0));
 			}
 			
-			.ultrasound_images .bottom {
-				display: block;
-				height: 25px;
-				background-image: linear-gradient(#000, #fff);
+			.ultrasound img {
+				width: 80%;
 			}
 			
-			.ultrasound_images img {
-				width: 25%;
+			.ultrasound small {
+				display: block;
+				margin: 7px 0 0 0;
 			}
 			
-			.patient_male {
-				display: block;
-				float: right;
-				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev1.png") 0 0; 
-				width: 240px;
-				height: 240px;
-				border: 0;
-				-webkit-print-color-adjust: exact !important;
-				color-adjust: exact !important;
-			}
-			.patient_male2 {
-				display: block;
-				float: right;
-				background: no-repeat url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/malev2.png") 0 0; 
-				width: 240px;
-				height: 240px;
-				border: 0;
-				-webkit-print-color-adjust: exact !important;
-				color-adjust: exact !important;
-			}
-			.probe {
-				display: block;
-				width: 240px;
-				height: 240px;
-				-webkit-print-color-adjust: exact !important;
-				color-adjust: exact !important;
+			.ultrasound small, .ultrasound a {
+				font-size: 12px;
+				line-height: 14px;
+				color: #999;
 			}
 		</style>
 		<script type="text/javascript">
@@ -129,6 +117,11 @@
 			</div>
 			
 			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/scrotum/image0_PMC5895684.jpg"><br>Normal Bilateral Testes Comparison <small>Source: https://doi.org/10.1007/s00247-018-4093-0<br>Authors: Anjum Bandarkar, Anna Blask<br><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
 				<h1>Testes B/L Trans</h1>
 				<ul>
 					<li>Take an image showing both testes with similar texture and echogenicity when normal.</li>
@@ -162,6 +155,11 @@
 			</div>
 			
 			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/scrotum/image1_PMC5895684.jpg"><br>Normal Arterial Flow within Testis <small>Source: https://doi.org/10.1007/s00247-018-4093-0<br>Authors: Anjum Bandarkar, Anna Blask<br><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
 				<h1>Right Testis Sag Med/Mid/Lat</h1>
 				<ul>
 					<li>When normal, take color and Doppler at the mid testis only.</li>
@@ -208,6 +206,11 @@
 			</div>
 			
 			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/scrotum/image3_MikaelHaggstrom.jpg"><br>Hemiscrotum with Large Hydrocele <small>Source: https://commons.wikimedia.org/wiki/File:Ultrasonography_of_hydrocele.jpg<br>Author: Mikael Haggstrom</small></span>
+					<span class="bottom"></span>
+				</span>
 				<h1>Right Hydrocele Sag/Trans</h1>
 				<ul>
 					<li>No need to document small or trace hydroceles.</li>
@@ -220,17 +223,28 @@
 			</div>
 			
 			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/scrotum/image2_PMC7588576.jpg"><br>Positive Reflux with Valsalva <small>Source: https://doi.org/10.1007/s40477-020-00509-z<br>Authors: M. Bertolotto, S. Freeman, J. Richenberg, et al.<br><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
 				<h1>Right Supine Spermatic Cord W/ Valsalva</h1>
 				<ul>
 					<li>Scan supero-laterally from the testis to identify the pampiniform plexus veins. Evaluate the veins in the sagittal plane only.</li>
 					<li>Steer the color box in the correct direction, and ask the patient to perform a light Valsalva maneuver: Tell the patient to slowly bear down as if starting a bowel movement. Sometimes, having the patient take deep breaths in and out is sufficient to elicit a flow reversal.</li>
 					<p></p>
-					<b>Cine with Color:</b> Limit one cine clip showing good color filling with Valsalva. 
+					<b>Cine with Color:</b> Limit one cine clip showing good color filling with Valsalva. <br>
+					<b>Doppler image:</b> Doppler the largest vein, confirming presence or absence of reflux. 
 				</ul>
 				<p></p>
 			</div>
 			
 			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/scrotum/image4_PMC5916946.jpg"><br>Correct A/P Measurement of Varicocele<small>Source: https://doi.org/10.1038/s41598-018-24890-2<br>Authors: S.M. Bagheri, F. Khajehasani, H. Iraji, et al.<br><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
 				<h1>Right Supine Spermatic Cord (W/ Valsalva)</h1>
 				<ul>
 					<li>Measure the A/P diameter of the largest pampiniform plexus vein in the sagittal view, with the patient at rest and with Valsalva.</li>
