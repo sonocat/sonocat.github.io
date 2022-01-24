@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SonoCat - Practical Guide to General Sonography</title>
+		
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		
+		<style type="text/css">
+			body {
+				background: #F9E324 url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/quizzes/quizbg.jpg") center top;
+				text-align: center;
+			}
+			ol, ul {
+				list-style: none;
+			}
+			#frame {
+				max-width: 700px;
+				width: auto;
+				border: 3px solid #fbec69;
+				background: #fff;
+				padding: 11px;
+				margin: 10px auto;
+				text-align: left;
+			}
+			h1 {
+				font: bold 19px Arial;
+				color: #9e4913;
+				background-image: linear-gradient(to right, #8cd8fb, #fff);
+				text-transform: uppercase;
+				line-height: 33px; 
+				padding-left: 9px;
+				margin: 0;
+				border-bottom: 2px solid #000;
+			}
+			h2 {
+				font: 21px "Times New Roman";
+				padding: 0;
+				margin: 15px 0;
+				text-align: center;
+			}
+			p.pager {
+				margin: 5px 9px;
+				font: bold 17px Arial;
+				color: #728b6d;
+			}
+			p.source {
+				text-align: center;
+				font: 12px "Times New Roman";
+			}
+			img.question-image {
+				display: block;
+				max-width: 250px;
+				margin: 10px auto;
+				border: 1px solid #ccc;
+				width: 100%;
+				height: auto;
+			}
+			#choice-block {
+				display: block;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#submitbutton {
+				background: #5a6b8c;
+			}
+			#submitbutton:hover {
+				background: #7b8da6;
+			}
+			#explanation {
+				margin: 0 auto;
+				padding: 20px;
+				width: 75%;
+			}
+			.choice-box {
+				display: block;
+				font: 15px Arial;
+				text-align: center;
+				margin: 8px auto;
+				padding: 10px 0;
+				border: 1px solid #666;
+				cursor: pointer;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+		</style>
+		
+		<script id="insert"></script>
+		<script src="/stringify.js" charset="utf-8"></script>
+		<script>
+			const customConsole = (w) => {
+				const pushToConsole = (payload, type) => {
+					w.parent.postMessage({
+						console: {
+							payload: stringify(payload),
+							type: type
+						}
+				}, "*")
+			}
+			w.onerror = (message, url, line, column) => {
+				// the line needs to correspond with the editor panel
+				// unfortunately this number needs to be altered every time this view is changed
+				line = line - 70
+				if (line < 0){
+					pushToConsole(message, "error")
+				} else {
+					pushToConsole(`[${line}:${column}] ${message}`, "error")
+				}
+			}
+				
+			let console = (function(systemConsole){
+				return {
+					log: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "log")
+						systemConsole.log.apply(this, args)
+					},
+					info: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "info")
+						systemConsole.info.apply(this, args)
+					},
+					warn: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "warn")
+						systemConsole.warn.apply(this, args)
+					},
+					error: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "error")
+						systemConsole.error.apply(this, args)
+					},
+					system: function(arg){
+						pushToConsole(arg, "system")
+					},
+					clear: function(){
+						systemConsole.clear.apply(this, {})
+					},
+					time: function(){
+						let args = Array.from(arguments)
+						systemConsole.time.apply(this, args)
+					},
+					assert: function(assertion, label){
+						if (!assertion){
+							pushToConsole(label, "log")
+					}
+						
+					let args = Array.from(arguments)
+					systemConsole.assert.apply(this, args)
+				}
+			}
+		}(window.console))
+				
+				window.console = { ...window.console, ...console } 
+				console.system("Running fiddle")
+		}
+		if (window.parent){
+			customConsole(window)
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<div id="frame" role="content">
+		
+		<script type="text/javascript">//<![CDATA[
+			
+			var quiztitle = "Renal and Bladder Quiz";
+			var quiz = [
+				{
+					"question" : "What is the appearance of renal cell carcinoma within the kidney?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"Hyperechoic mass",
+						"Hypoechoic mass",
+						"Cluster of calcifications",
+						"Complex cyst", 
+						"All of the above"
+					],
+					"correct" : "All of the above",
+					"explanation" : "All of the above. Although RCC is most often a slightly hyperechoic solid mass, it can range from being very hyperechoic to hypoechoic, vascular to poorly vascular, or even contain cystic elements or calcifications. Source: Hertzberg, Barbara S, and William D Middleton. “Kidney.” Ultrasound: The Requisites, Elsevier, 2016, pp. 114–120.",
+				},
+				{
+					"question" : "Without confirmation by CT or MR imaging, all solid and complex renal masses seen on ultrasound in adults should be considered possible renal cell carcinoma.",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"True",
+						"False"
+					],
+					"correct" : "True",
+					"explanation" : "True. Source: Source: Hertzberg, Barbara S, and William D Middleton. “Kidney.” Ultrasound: The Requisites, Elsevier, 2016, p. 116.",
+				},
+				{
+					"question" : "Without any other known history, what most correctly describes this kidney finding?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/30707662/8ff01ff11ce8e2ce57277613bc7757_big_gallery.jpeg",
+					"source" : "https://doi.org/10.53347/rID-53755",
+					"choices" : [
+						"Benign mass",
+						"Malignant mass",
+						"Angiomyolipoma",
+						"Hyperechoic mass"
+					],
+					"correct" : "Hyperechoic mass",
+					"explanation" : "The only certainty is that this is a hyperechoic mass. Although what is shown is actually an angiomyolipoma (correlated with CT), ultrasound cannot reliably differentiate renal masses, AML from RCC, or benign from malignant.",
+				},
+				{
+					"question" : "What is this kidney finding?",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4613589/bin/JoU-2013-0026-g002.jpg",
+					"source" : "https://dx.doi.org/10.15557/JoU.2013.0026",
+					"choices" : [
+						"Probable renal mass",
+						"Probable Dromedary hump",
+						"Probable hypertrophied column of Bertin"
+					],
+					"correct" : "Probable Dromedary hump",
+					"explanation" : "Probable Dromedary hump (camel hump) variant of the normal kidney contour. Note the normal course of the intrarenal vessels through the cortex, which helps to differentiate it from an isoechoic mass. Dromedary humps are found on the left kidney due to the impression on the superior pole by the spleen.",
+				},
+				{
+					"question" : "What is this avascular kidney finding?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/8662749/78b1b6f706b73137c0f6cb7e1e675e_big_gallery.jpeg",
+					"source" : "https://doi.org/10.53347/rID-31487",
+					"choices" : [
+						"Staghorn calculus",
+						"Hydronephrosis",
+						"Milk of calcium cyst"
+					],
+					"correct" : "Milk of calcium cyst",
+					"explanation" : "This is a milk of calcium cyst, containing a layer of echogenic precipitates in the posterior or dependent portion by gravity. Measure the entire cyst with the internal echogenic material.",
+				},
+				{
+					"question" : "Hydronephrosis can mimic what renal finding, also shown below?",
+					"image" : "https://www.mdpi.com/diagnostics/diagnostics-06-00002/article_deploy/html/images/diagnostics-06-00002-g005.png",
+					"source" : "https://doi.org/10.3390/diagnostics6010002",
+					"choices" : [
+						"Parapelvic cyst",
+						"Exophytic cyst",
+						"Milk of calcium cyst",
+						"Hemorrhagic cyst"
+					],
+					"correct" : "Parapelvic cyst",
+					"explanation" : "Shown is a parapelvic cyst. When there are multiple cysts at the renal hilum, it can be mistaken for hydronephrosis.",
+				},
+				{
+					"question" : "How to be a psychic: What can you confirm with this patient who has this specific renal finding?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/50964112/07d9c629fea10d45086814e6e44f5d_big_gallery.jpeg",
+					"source" : "https://doi.org/10.53347/rID-70005",
+					"choices" : [
+						"Did you live in a high altitude?",
+						"Did you ever take lithium for medication?",
+						"D"
+					],
+					"correct" : "Dilated intrahepatic ducts",
+					"explanation" : "This shows the dilated intrahepatic ducts, which could be due to an obstruction by a mass or bile duct stone. (Other causes being congenital or infectious).",
+				},
+			];
+			
+			var currentquestion = 0,
+				score = 0,
+				submt = true,
+				picked;
+			
+			jQuery(document).ready(function ($) {
+			
+			function htmlEncode(value) {
+				return $(document.createElement('div')).text(value).html();
+			}
+			
+			function addChoices(choices) {
+				if (typeof choices !== "undefined" && $.type(choices) == "array") {
+					$('#choice-block').empty();
+					for (var i = 0; i < choices.length; i++) {
+						$(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#choice-block');
+					}
+				}
+			}
+			
+			function nextQuestion() {
+				submt = true;
+				$('#explanation').empty();
+				$('#source').empty();
+				$('#question').text(quiz[currentquestion]['question']);
+				$('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+				if (quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != "") {
+					if ($('#question-image').length == 0) {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					} else {
+						$('#question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					}
+				} else {
+					$('#question-image').remove();
+				}
+				addChoices(quiz[currentquestion]['choices']);
+				setupButtons();
+			}
+			
+			function processQuestion(choice) {
+				if (quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']) {
+					$('.choice').eq(choice).css({
+ 						'background-color': '#50D943'
+					});
+					$('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+					score++;
+				} else {
+					$('.choice').eq(choice).css({
+						'background-color': '#D92623'
+					});
+					$('#explanation').html('<strong>Incorrect.</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+				}
+				currentquestion++;
+				$('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function () {
+					if (currentquestion == quiz.length) {
+						endQuiz();
+					} else {
+						$(this).text('Check Answer').css({
+						'color': '#222'
+						}).off('click');
+						nextQuestion();
+					}
+				})
+			}
+			
+			function setupButtons() {
+				$('.choice').on('mouseover', function () {
+					$(this).css({
+						'background-color': '#e1e1e1'
+					});
+				});
+				$('.choice').on('mouseout', function () {
+					$(this).css({
+						'background-color': '#fff'
+					});
+				})
+				$('.choice').on('click', function () {
+					picked = $(this).attr('data-index');
+					$('.choice').removeAttr('style').off('mouseout mouseover');
+					$(this).css({
+						'border-color': '#222',
+						'font-weight': 700,
+						'background-color': '#c1c1c1'
+					});
+					if (submt) {
+						submt = false;
+						$('#submitbutton').css({
+							'color': '#000'
+						}).on('click', function () {
+							$('.choice').off('click');
+							$(this).off('click');
+							processQuestion(picked);
+						});
+					}
+				})
+			}
+			
+			function endQuiz() {
+				$('#explanation').empty();
+				$('#question').empty();
+				$('#choice-block').empty();
+				$('#submitbutton').remove();
+				$('#question-image').remove();
+				$('#source').empty();
+				$('#question').text("You got " + score + " out of " + quiz.length + " correct.");
+				$(document.createElement('h2')).css({
+					'text-align': 'center',
+					'font-size': '4em'
+				}).text(Math.round(score / quiz.length * 100) + '%').insertAfter('#question');
+			}
+			
+			function init() {
+				//add title
+				if (typeof quiztitle !== "undefined" && $.type(quiztitle) === "string") {
+					$(document.createElement('h1')).text(quiztitle).appendTo('#frame');
+				} else {
+					$(document.createElement('h1')).text("Quiz").appendTo('#frame');
+				}
+				//add pager and questions
+				if (typeof quiz !== "undefined" && $.type(quiz) === "array") {
+					//add pager
+					$(document.createElement('p')).addClass('pager').attr('id', 'pager').text('Question 1 of ' + quiz.length).appendTo('#frame');
+					//add first question
+					$(document.createElement('h2')).addClass('question').attr('id', 'question').text(quiz[0]['question']).appendTo('#frame');
+					//add image if present
+					if (quiz[0].hasOwnProperty('image') && quiz[0]['image'] != "") {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
+						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
+					}
+					
+					$(document.createElement('p')).addClass('source').attr('id', 'source').appendTo('#frame');
+
+					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
+					//questions holder
+					$(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+					//add choices
+					addChoices(quiz[0]['choices']);
+					//add submit button
+					$(document.createElement('div')).addClass('choice-box').attr('id', 'submitbutton').text('Check Answer').css({
+						'font-weight': 700,
+						'color': '#222',
+						'padding': '30px 0'
+					}).appendTo('#frame');
+					setupButtons();
+				}
+			}
+			init();
+		});
+	//]]></script>
+		
+		<script>
+			// tell the embed parent frame the height of the content
+			if (window.parent && window.parent.parent){
+				window.parent.parent.postMessage(["resultsFrame", {
+					height: document.body.getBoundingClientRect().height,
+					slug: "7Du6N"
+				}], "*")
+			}
+			// always overwrite window.name, in case users try to set it manually
+			window.name = "result"
+		</script>
+		
+		<script>
+			let allLines = []
+			
+			window.addEventListener("message", (message) => {
+				if (message.data.console){
+					let insert = document.querySelector("#insert")
+					allLines.push(message.data.console.payload)
+					insert.innerHTML = allLines.join(";\r")
+					
+					let result = eval.call(null, message.data.console.payload)
+					if (result !== undefined){
+						console.log(result)
+					}
+				}
+			})
+		</script>
+	</div>
+		
+	</body>
+</html>
