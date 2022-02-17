@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SonoCat - Practical Guide to General Sonography</title>
+		
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+		
+		<style type="text/css">
+			body {
+				background: #F9E324 url("https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/quizzes/quizbg.jpg") center top;
+				text-align: center;
+			}
+			ol, ul {
+				list-style: none;
+			}
+			#frame {
+				max-width: 700px;
+				width: auto;
+				border: 3px solid #fbec69;
+				background: #fff;
+				padding: 11px;
+				margin: 10px auto;
+				text-align: left;
+			}
+			h1 {
+				font: bold 19px Arial;
+				color: #9e4913;
+				background-image: linear-gradient(to right, #8cd8fb, #fff);
+				text-transform: uppercase;
+				line-height: 33px; 
+				padding-left: 9px;
+				margin: 0;
+				border-bottom: 2px solid #000;
+			}
+			h2 {
+				font: 21px "Times New Roman";
+				padding: 0;
+				margin: 15px 0;
+				text-align: center;
+			}
+			p.pager {
+				margin: 5px 9px;
+				font: bold 17px Arial;
+				color: #728b6d;
+			}
+			p.source {
+				text-align: center;
+				font: 12px "Times New Roman";
+			}
+			img.question-image {
+				display: block;
+				max-width: 250px;
+				margin: 10px auto;
+				border: 1px solid #ccc;
+				width: 100%;
+				height: auto;
+			}
+			#choice-block {
+				display: block;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#submitbutton {
+				background: #5a6b8c;
+			}
+			#submitbutton:hover {
+				background: #7b8da6;
+			}
+			#explanation {
+				margin: 0 auto;
+				padding: 20px;
+				width: 75%;
+			}
+			.choice-box {
+				display: block;
+				font: 15px Arial;
+				text-align: center;
+				margin: 8px auto;
+				padding: 10px 0;
+				border: 1px solid #666;
+				cursor: pointer;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+		</style>
+		
+		<script id="insert"></script>
+		<script src="/stringify.js" charset="utf-8"></script>
+		<script>
+			const customConsole = (w) => {
+				const pushToConsole = (payload, type) => {
+					w.parent.postMessage({
+						console: {
+							payload: stringify(payload),
+							type: type
+						}
+				}, "*")
+			}
+			w.onerror = (message, url, line, column) => {
+				// the line needs to correspond with the editor panel
+				// unfortunately this number needs to be altered every time this view is changed
+				line = line - 70
+				if (line < 0){
+					pushToConsole(message, "error")
+				} else {
+					pushToConsole(`[${line}:${column}] ${message}`, "error")
+				}
+			}
+				
+			let console = (function(systemConsole){
+				return {
+					log: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "log")
+						systemConsole.log.apply(this, args)
+					},
+					info: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "info")
+						systemConsole.info.apply(this, args)
+					},
+					warn: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "warn")
+						systemConsole.warn.apply(this, args)
+					},
+					error: function(){
+						let args = Array.from(arguments)
+						pushToConsole(args, "error")
+						systemConsole.error.apply(this, args)
+					},
+					system: function(arg){
+						pushToConsole(arg, "system")
+					},
+					clear: function(){
+						systemConsole.clear.apply(this, {})
+					},
+					time: function(){
+						let args = Array.from(arguments)
+						systemConsole.time.apply(this, args)
+					},
+					assert: function(assertion, label){
+						if (!assertion){
+							pushToConsole(label, "log")
+					}
+						
+					let args = Array.from(arguments)
+					systemConsole.assert.apply(this, args)
+				}
+			}
+		}(window.console))
+				
+				window.console = { ...window.console, ...console } 
+				console.system("Running fiddle")
+		}
+		if (window.parent){
+			customConsole(window)
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<div id="frame" role="content">
+		
+		<script type="text/javascript">//<![CDATA[
+			
+			var quiztitle = "Biliary Quiz";
+			var quiz = [
+				{
+					"question" : "Sonographic findings include a distended gallbladder, dilated intrahepatic ducts, and normal pancreatic duct. Where is the obstruction?",
+					"image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Biliary_system_new.svg/826px-Biliary_system_new.svg.png",
+					"source" : "Vishnu2011, https://en.wikipedia.org/wiki/File:Biliary_system_new.svg",
+					"choices" : [
+						"Cystic duct",
+						"Common hepatic duct",
+						"Common bile duct",
+						"Sphincter of Oddi"
+					],
+					"correct" : "Common bile duct",
+					"explanation" : "Common bile duct. Know that all parts of the biliary tree flow towards the duodenum via the Sphincter of Oddi. A cystic duct obstruction will distend the gallbladder only. A common hepatic duct (CHD) obstruction will cause back up of bile in the intrahepatic ducts (RHD and LHD) only. A CBD obstruction will cause back up in all hepatic ducts and the gallbladder. A Sphincter of Oddi or pancreas head obstruction will cause dilatation of the entire biliary tree.",
+				},
+				{
+					"question" : "Sonographic findings include gallstones within the gallbladder as shown, dilated intrahepatic ducts, and a CBD diameter of 0.3 cm. Where is the obstruction?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/437413/1a8a576b6792aa06154b969ad11a45_big_gallery.jpg",
+					"source" : "https://doi.org/10.53347/rID-9558",
+					"choices" : [
+						"Cystic duct",
+						"Common hepatic duct",
+						"Common bile duct", 
+						"Pancreatic duct"
+					],
+					"correct" : "Common hepatic duct",
+					"explanation" : "A common hepatic duct obstruction best fits these findings e.g. cholangiocarcinoma involving the CHD. No CBD obstruction is suggested with a normal measurement of 0.3 cm, which pinpoints the obstruction to be somewhere between the intrahepatic ducts and CBD, i.e. the CHD. A cystic duct obstruction does not cause intrahepatic duct dilatation, so this choice is eliminated.",
+				},
+				{
+					"question" : "What is the upper limit for a normal pancreatic duct diameter?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"3 mm",
+						"2 mm", 
+						"1 mm"
+					],
+					"correct" : "3 mm",
+					"explanation" : "Around 3 mm. Different sources will vary.",
+				},
+				{
+					"question" : "Sonographic findings include a CBD diameter of 1.0 cm, dilated intrahepatic ducts, and pancreas appearance as shown. What is the concern?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/37831507/e01bc7a16dd112dbb57e36eebda99c_big_gallery.jpeg",
+					"source" : "https://doi.org/10.53347/rID-59668",
+					"choices" : [
+						"Intrahepatic cholangiocarcinoma",
+						"Common bile duct stone",
+						"Pancreas tail mass",
+						"Pancreas head mass"
+					],
+					"correct" : "Pancreas head mass",
+					"explanation" : "You should look carefully for a pancreas head mass when you see dilatation of both the CBD and pancreatic duct, aka the double duct sign. It is highly suspicious for a malignant tumor at the pancreas head even when no mass is seen. This image is taken from a case illustrating a hypoechoic mass at the pancreas head found to be pancreas adenocarcinoma.",
+				},
+				{
+					"question" : "What is this gallbladder finding?",
+					"image" : "https://prod-images-static.radiopaedia.org/images/2002862/7297304f1d060920ca1c7d6fdf7fa5_big_gallery.jpg",
+					"source" : "https://doi.org/10.53347/rID-18066",
+					"choices" : [
+						"Polyp",
+						"Cholecystitis",
+						"Adenomyomatosis",
+						"Sludge"
+					],
+					"correct" : "Adenomyomatosis",
+					"explanation" : "Adenomyomatosis. Shown is a focal part of gallbladder wall thickening (adenomyomatosis can also be diffuse) and a bright comet-tail artifact."
+				},
+				{
+					"question" : "How would you confirm that the gallbladder is contracted and that there is no cholecystitis?",
+					"image" : "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7458857/bin/10-1055-a-1223-1134-i0187-0009.jpg",
+					"source" : "https://doi.org/10.53347/rID-9660",
+					"choices" : [
+						"Absence of gallstones",
+						"Positive Murphy's sign",
+						"Absence of hyperemia",
+						"Gallbladder wall &gt;3 mm"
+					],
+					"correct" : "Absence of hyperemia",
+					"explanation" : "Absence of hyperemia. A contracted gallbladder will not show signs of inflammation, i.e. no increased vascularity surrounding the wall and a negative sonographic Murphy's sign. Eliminate the first choice since cholecystitis can less commonly occur without gallstones (acalculous cholecystitis).",
+				},
+				{
+					"question" : "Which vein will not be seen if the patient underwent varicose vein ablation?",
+					"image" : "",
+					"source" : "",
+					"choices" : [
+						"Soleal vein",
+						"Peroneal vein",
+						"Gastrocnemius vein", 
+						"Saphenous vein"
+					],
+					"correct" : "Saphenous vein",
+					"explanation" : "Saphenous vein. The GSV will not be visible on a patient s/p varicose vein ablation.",
+				},
+			];
+			
+			var currentquestion = 0,
+				score = 0,
+				submt = true,
+				picked;
+			
+			jQuery(document).ready(function ($) {
+			
+			function htmlEncode(value) {
+				return $(document.createElement('div')).text(value).html();
+			}
+			
+			function addChoices(choices) {
+				if (typeof choices !== "undefined" && $.type(choices) == "array") {
+					$('#choice-block').empty();
+					for (var i = 0; i < choices.length; i++) {
+						$(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#choice-block');
+					}
+				}
+			}
+			
+			function nextQuestion() {
+				submt = true;
+				$('#explanation').empty();
+				$('#source').empty();
+				$('#question').text(quiz[currentquestion]['question']);
+				$('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+				if (quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != "") {
+					if ($('#question-image').length == 0) {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					} else {
+						$('#question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+						$('#source').html('Source: ' + htmlEncode(quiz[currentquestion]['source']));
+					}
+				} else {
+					$('#question-image').remove();
+				}
+				addChoices(quiz[currentquestion]['choices']);
+				setupButtons();
+			}
+			
+			function processQuestion(choice) {
+				if (quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']) {
+					$('.choice').eq(choice).css({
+ 						'background-color': '#50D943'
+					});
+					$('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+					score++;
+				} else {
+					$('.choice').eq(choice).css({
+						'background-color': '#D92623'
+					});
+					$('#explanation').html('<strong>Incorrect.</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+				}
+				currentquestion++;
+				$('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function () {
+					if (currentquestion == quiz.length) {
+						endQuiz();
+					} else {
+						$(this).text('Check Answer').css({
+						'color': '#222'
+						}).off('click');
+						nextQuestion();
+					}
+				})
+			}
+			
+			function setupButtons() {
+				$('.choice').on('mouseover', function () {
+					$(this).css({
+						'background-color': '#e1e1e1'
+					});
+				});
+				$('.choice').on('mouseout', function () {
+					$(this).css({
+						'background-color': '#fff'
+					});
+				})
+				$('.choice').on('click', function () {
+					picked = $(this).attr('data-index');
+					$('.choice').removeAttr('style').off('mouseout mouseover');
+					$(this).css({
+						'border-color': '#222',
+						'font-weight': 700,
+						'background-color': '#c1c1c1'
+					});
+					if (submt) {
+						submt = false;
+						$('#submitbutton').css({
+							'color': '#000'
+						}).on('click', function () {
+							$('.choice').off('click');
+							$(this).off('click');
+							processQuestion(picked);
+						});
+					}
+				})
+			}
+			
+			function endQuiz() {
+				$('#explanation').empty();
+				$('#question').empty();
+				$('#choice-block').empty();
+				$('#submitbutton').remove();
+				$('#question-image').remove();
+				$('#source').empty();
+				$('#question').text("You got " + score + " out of " + quiz.length + " correct.");
+				$(document.createElement('h2')).css({
+					'text-align': 'center',
+					'font-size': '4em'
+				}).text(Math.round(score / quiz.length * 100) + '%').insertAfter('#question');
+			}
+			
+			function init() {
+				//add title
+				if (typeof quiztitle !== "undefined" && $.type(quiztitle) === "string") {
+					$(document.createElement('h1')).text(quiztitle).appendTo('#frame');
+				} else {
+					$(document.createElement('h1')).text("Quiz").appendTo('#frame');
+				}
+				//add pager and questions
+				if (typeof quiz !== "undefined" && $.type(quiz) === "array") {
+					//add pager
+					$(document.createElement('p')).addClass('pager').attr('id', 'pager').text('Question 1 of ' + quiz.length).appendTo('#frame');
+					//add first question
+					$(document.createElement('h2')).addClass('question').attr('id', 'question').text(quiz[0]['question']).appendTo('#frame');
+					//add image if present
+					if (quiz[0].hasOwnProperty('image') && quiz[0]['image'] != "") {
+						$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
+						$(document.createElement('p')).addClass('source').attr('id', 'source').text('Source: ' + quiz[0]['source']).appendTo('#frame');
+					}
+					
+					$(document.createElement('p')).addClass('source').attr('id', 'source').appendTo('#frame');
+
+					$(document.createElement('p')).addClass('explanation').attr('id', 'explanation').html('&nbsp;').appendTo('#frame');
+					//questions holder
+					$(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+					//add choices
+					addChoices(quiz[0]['choices']);
+					//add submit button
+					$(document.createElement('div')).addClass('choice-box').attr('id', 'submitbutton').text('Check Answer').css({
+						'font-weight': 700,
+						'color': '#222',
+						'padding': '30px 0'
+					}).appendTo('#frame');
+					setupButtons();
+				}
+			}
+			init();
+		});
+	//]]></script>
+		
+		<script>
+			// tell the embed parent frame the height of the content
+			if (window.parent && window.parent.parent){
+				window.parent.parent.postMessage(["resultsFrame", {
+					height: document.body.getBoundingClientRect().height,
+					slug: "7Du6N"
+				}], "*")
+			}
+			// always overwrite window.name, in case users try to set it manually
+			window.name = "result"
+		</script>
+		
+		<script>
+			let allLines = []
+			
+			window.addEventListener("message", (message) => {
+				if (message.data.console){
+					let insert = document.querySelector("#insert")
+					allLines.push(message.data.console.payload)
+					insert.innerHTML = allLines.join(";\r")
+					
+					let result = eval.call(null, message.data.console.payload)
+					if (result !== undefined){
+						console.log(result)
+					}
+				}
+			})
+		</script>
+	</div>
+		
+	</body>
+</html>
