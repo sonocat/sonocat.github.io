@@ -103,6 +103,47 @@
 				-webkit-print-color-adjust: exact !important;
 				color-adjust: exact !important;
 			}
+			.ultrasound {
+				display: block;
+				float: right;
+				margin: 0 0 0 19px;
+				width: 350px;
+				text-align: center;
+				color: #000;
+			}
+			
+			.ultrasound .top {
+				display: block;
+				height: 5px;
+			}
+			
+			.ultrasound .center {
+				display: block;
+				padding: 11px 0;
+				background: #fff;
+				overflow-wrap: break-word;
+				border: 1px solid #777;
+			}
+			
+			.ultrasound .bottom {
+				display: block;
+				height: 25px;
+			}
+			
+			.ultrasound img {
+				width: 90%;
+			}
+			
+			.ultrasound small {
+				display: block;
+				margin: 7px 0 0 0;
+			}
+			
+			.ultrasound small, .ultrasound a {
+				font-size: 12px;
+				line-height: 14px;
+				color: #999;
+			}
 		</style>
 		<script type="text/javascript">
 			
@@ -117,7 +158,7 @@
 				<h1>Thyroid Protocol</h1>
 				<ul>
 					<li>Measure up to 3 thyroid nodules for each lobe.</li>
-					<li>If the exam is for parathyroid, take additional grayscale and color cines of the area just posterior to the thyroid using a lower frequency linear probe (the carotid probe). </li>
+					<li>If the exam is for parathyroid, take additional grayscale and color cines of the area just posterior to the thyroid using a lower frequency linear probe (the "carotid probe").</li>
 					<p></p>
 					<b>Scanning Duration:</b> 15 minutes.
 				</ul>
@@ -130,7 +171,7 @@
 				<h1>Thyroid Trans</h1>
 				<ul>
 					<li>Show the right and left thyroid lobes with the isthmus at the center.</li>
-					<li>For thyroidectomy patients, the protocol is similar but label instead "Thyroid Bed Sag/Trans" on the side of thyroidectomy.</li>
+					<li>If the thyroid is absent due to thyroidectomy, then label accordingly e.g. "Thyroid Bed Sag/Trans" and do not take measurements.</li>
 					<p></p>
 					<b>Color image:</b> One image at midline.<br>
 					<b>Measurement image:</b> Isthmus A/P width. 
@@ -147,10 +188,10 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probeCCAtrans.png) 40px 40px;"></span></span>
 				<h1>Right Thyroid Sag</h1>
 				<ul>
-					<li>Adjust depth and frequency such that the posterior border of the thyroid is clear.</li>
+					<li>Adjust depth and frequency such that the posterior border of the thyroid is well seen.</li>
 					<li>Take one image of mid sagittal thyroid with measurement.</li>
 					<p></p>
-					<b>Measurement image:</b> One image with length and A/P measurements. 
+					<b>Measurement image:</b> Length and A/P measurements. 
 				</ul>
 				<span class="ultrasound_images">
 					<span class="top"></span>
@@ -166,7 +207,7 @@
 				<ul>
 					<li>Take one image of mid transverse thyroid with measurement.</li>
 					<p></p>
-					<b>Measurement image:</b> One image with transverse measurement.
+					<b>Measurement image:</b> Transverse measurement.
 				</ul>
 				<span class="ultrasound_images">
 					<span class="top"></span>
@@ -180,7 +221,7 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 37px 37px;"></span></span>
 				<h1>Right Thyroid Sag Med/Mid/Lat</h1>
 				<ul>
-					<li>Take stills of medial, mid, and lateral thyroid.</li>
+					<li>Take 3 stills through the thyroid from medial to lateral.</li>
 					<li>The medial view should include part of the trachea (alternating hypoechoic and hyperechoic linear bands).</li>
 					<p></p>
 					<b>Color image:</b> One image at mid thyroid.<br>
@@ -198,7 +239,7 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 34px 32px;"></span></span>
 				<h1>Right Thyroid Trans Sup/Mid/Inf</h1>
 				<ul>
-					<li>Take stills of superior, mid, and inferior thyroid.</li>
+					<li>Take 3 stills through the thyroid from superior to inferior.</li>
 					<p></p>
 					<b>Color image:</b> One image at mid thyroid. <br>
 					<b>Cine:</b> Superior to inferior.
@@ -215,21 +256,25 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 34px 32px;"></span></span>
 				<h1>Right Neck Sag</h1>
 				<ul>
-					<li>One image of the lateral neck, showing only musculature.</li>
+					<li>One image showing the lateral neck musculature.</li>
 					<p></p>
 				</ul>
 			</div>
 			
 			<div class="protocol_box">
 				<h1>Right Neck Trans Level 2-4/5/6</h1>
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Cervical_lymph_nodes_and_levels.svg/724px-Cervical_lymph_nodes_and_levels.svg.png"><br>Neck Levels <small>Source: https://commons.wikimedia.org/wiki/File:Cervical_lymph_nodes_and_levels.png<br>Author: Mikael Haggstrom<br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0 1.0</a></small></span>
+					<span class="bottom"></span>
+				</span>
 				<ul>
-					<li>Take cine clips of the neck levels in transverse, scanning superior to inferior.</li>
-					<li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Cervical_lymph_nodes_and_levels.svg/724px-Cervical_lymph_nodes_and_levels.svg.png" style="width:70%;"></li>
-					<li>Levels 2-4: scan from the angle of the jaw to the clavicle, with the image centered on the carotid artery.</li>
-					<li>Level 5: scan lateral to levels 2-4, with the carotids visible on the far medial side of the screen.</li>
-					<li>Level 6: scan from above the thyroid to the clavicle, with the image centered on the thyroid lobe.</li>
+					<li>Scan through the neck levels in transverse, as described below. Document any abnormal lymph nodes seen.</li>
+					<li>Levels 2-4: from the angle of the jaw to the clavicle, with the image centered on the carotid artery.</li>
+					<li>Level 5: lateral to levels 2-4, with the carotids visible on the far medial side of the image.</li>
+					<li>Level 6: from the hyoid (above the thyroid) to the clavicle, with the image centered on the thyroid lobe.</li>
 					<p></p>
-					<b>Cine:</b> 3 clips as described above, superior to inferior.
+					<b>Cine:</b> Superior to inferior each at levels 2-4, 5, and 6. 
 					<p></p>
 				</ul>
 			</div>
@@ -238,9 +283,9 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probeCCAtrans.png) 40px 40px;"></span></span>
 				<h1>Left Thyroid Sag</h1>
 				<ul>
-					<li>One image of mid sagittal thyroid.</li>
+					<li>Take one image of mid sagittal thyroid with measurement.</li>
 					<p></p>
-					<b>Measurement image:</b> One image with length and A/P measurements. 
+					<b>Measurement image:</b> Length and A/P measurements. 
 				</ul>
 				<span class="ultrasound_images">
 					<span class="top"></span>
@@ -254,9 +299,9 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probeCCAsag.png) 40px 43px;"></span></span>
 				<h1>Left Thyroid Trans</h1>
 				<ul>
-					<li>One image of mid transverse thyroid.</li>
+					<li>Take one image of mid transverse thyroid with measurement.</li>
 					<p></p>
-					<b>Measurement image:</b> One image with transverse measurement.
+					<b>Measurement image:</b> Transverse measurement.
 				</ul>
 				<span class="ultrasound_images">
 					<span class="top"></span>
@@ -270,6 +315,8 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 37px 37px;"></span></span>
 				<h1>Left Thyroid Sag Med/Mid/Lat</h1>
 				<ul>
+					<li>Take 3 stills through the thyroid from medial to lateral.</li>
+					<li>The medial view should include part of the trachea (alternating hypoechoic and hyperechoic linear bands).</li>
 					<p></p>
 					<b>Color image:</b> One image at mid thyroid.<br>
 					<b>Cine:</b> Medial to lateral.
@@ -286,6 +333,8 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 34px 32px;"></span></span>
 				<h1>Left Thyroid Trans Sup/Mid/Inf</h1>
 				<ul>
+					<li>Take 3 stills through the thyroid from superior to inferior.</li>
+					<li>The esophagus is usually seen just posterior to the left thyroid lobe, not to be mistaken for a nodule.</li>
 					<p></p>
 					<b>Color image:</b> One image at mid thyroid. <br>
 					<b>Cine:</b> Superior to inferior.
@@ -302,16 +351,25 @@
 				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 34px 32px;"></span></span>
 				<h1>Left Neck Sag</h1>
 				<ul>
-					<li>.</li>
+					<li>One image showing the lateral neck musculature.</li>
 					<p></p>
 				</ul>
 			</div>
 			
 			<div class="protocol_box">
-				<span class="patient_male"><span class="probe" style="background: no-repeat url(https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/probebulbsag.png) 34px 32px;"></span></span>
 				<h1>Left Neck Trans Level 2-4/5/6</h1>
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Cervical_lymph_nodes_and_levels.svg/724px-Cervical_lymph_nodes_and_levels.svg.png"><br>Neck Levels <small>Source: https://commons.wikimedia.org/wiki/File:Cervical_lymph_nodes_and_levels.png<br>Author: Mikael Haggstrom<br><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0 1.0</a></small></span>
+					<span class="bottom"></span>
+				</span>
 				<ul>
-					<li>.</li>
+					<li>Scan through the neck levels in transverse, as described below. Document any abnormal lymph nodes seen.</li>
+					<li>Levels 2-4: from the angle of the jaw to the clavicle, with the image centered on the carotid artery.</li>
+					<li>Level 5: lateral to levels 2-4, with the carotids visible on the far medial side of the image.</li>
+					<li>Level 6: from the hyoid (above the thyroid) to the clavicle, with the image centered on the thyroid lobe.</li>
+					<p></p>
+					<b>Cine:</b> Superior to inferior each at levels 2-4, 5, and 6. 
 					<p></p>
 				</ul>
 			</div>
