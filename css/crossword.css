@@ -43,7 +43,8 @@ h2 {
 }
 
 .list-text {
-	font-family: Arial;
+	font: 14px Arial;
+	line-height: 18px;
 }
 
 .blank-cell {
