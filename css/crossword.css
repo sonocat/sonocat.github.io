@@ -6,6 +6,10 @@
 	background: lime;
 }
 
+li {
+	list-style-type: none;
+}
+
 .puzzle {
 	border-collapse: collapse;
 	border-color: #000000;
