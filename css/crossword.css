@@ -63,10 +63,10 @@ ul, li {
 }
 
 .strikeout::after {
-	border-bottom: 0.250em solid blue;
+	border-bottom: 0.175em solid blue;
 	content: "";
 	left: 0;
-	margin-top: calc(0.125em / 2 * -1);
+	margin-top: calc(0.175em / 2 * -1);
 	position: absolute;
 	right: 0;
 	top: 50%;
@@ -77,7 +77,7 @@ ul, li {
 }
 
 .red-strikeout::after {
-	border-bottom: 0.175em solid #000;
+	border-bottom: 0.175em solid red;
 	content: "";
 	left: 0;
 	margin-top: calc(0.175em / 2 * -1);
