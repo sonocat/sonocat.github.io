@@ -7,8 +7,8 @@ ul, li {
 }
 h1 {
 	font: bold 19px Arial;
-	color: #66b3b3;
-	background-image: linear-gradient(to right, #8cd8fb, #fff);
+	color: #800000;
+	background-image: linear-gradient(to right, #66b3b3, #fff);
 	text-transform: uppercase;
 	line-height: 33px; 
 	padding-left: 9px;
@@ -119,7 +119,7 @@ h2 {
 #answer-form {
 	display: none;
 	border: 2px solid black;
-	font: 16px "Times New Roman";
+	font: 17px "Times New Roman";
 	position: fixed;
 	top: 50%;
 	left: 50%;
