@@ -60,10 +60,11 @@ h2 {
 
 .linkable {
 	cursor: pointer;
-	color: blue;
+	color: #000;
 	text-decoration: none;
 }
 .linkable:hover {
+	color: teal;
 	text-decoration: underline;
 }
 
