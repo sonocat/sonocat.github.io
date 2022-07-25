@@ -17,10 +17,12 @@ h1 {
 	text-align: left;
 }
 h2 {
-	font: bold 17px Arial;
+	font: bold 15px Arial;
 	color: #000;
-	text-decoration: underline;
-	line-height: 29px;
+	line-height: 27px;
+	padding-left: 9px;
+	margin: 0;
+	text-align: center;
 }
 
 .puzzle {
