@@ -14,6 +14,7 @@ h1 {
 	padding-left: 9px;
 	margin: 0;
 	border-bottom: 2px solid #000;
+	text-align: left;
 }
 
 .puzzle {
@@ -38,7 +39,9 @@ h1 {
 }
 
 .blank-cell {
-	background-color: #000000;
+	background-color: #aaa;
+	-webkit-print-color-adjust: exact !important;
+	color-adjust: exact !important;
 }
 
 .clickable {
