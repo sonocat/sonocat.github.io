@@ -24,11 +24,11 @@ ul, li {
 }
 
 .blank-cell {
-	background-color:#000000;
+	background-color: #000000;
 }
 
 .clickable {
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .linkable {
@@ -36,7 +36,7 @@ ul, li {
 	color: blue;
 	text-decoration: none;
 }
-.linkable:hoveer {
+.linkable:hover {
 	text-decoration: underline;
 }
 
