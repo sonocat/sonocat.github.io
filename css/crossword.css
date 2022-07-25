@@ -1,3 +1,11 @@
+#root {
+	background: yellow;
+}
+
+#lists {
+	background: lime;
+}
+
 ul, li {
 	list-style-type: none;
 }
