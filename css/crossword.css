@@ -8,34 +8,37 @@ ul {
 }
 
 .letter-cell {
-	text-align:center;
-	height:40px;
-	width:40px;
+	text-align: center;
+	height: 40px;
+	width: 40px;
 }
 
 .letter-text {
-	font-family:helvetica;
-	font-weight:bold;
-	text-transform:uppercase;
+	font-family: helvetica;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .list-text {
-	font-family:helvetica;
+	font-family: helvetica;
 }
 
 .blank-cell {
-	background-color:teal;
+	background-color: teal;
 }
 
 .clickable {
-	cursor:pointer;
+	cursor: pointer;
 }
 
 .linkable {
-	cursor:pointer;
-	color:blue;
-	text-decoration:underline;
+	cursor: pointer;
+	color: blue;
 }
+.linkable:hover {
+	text-decoration: underline;
+}
+
 .background-text {
 	position: absolute;
 	top: 0;
