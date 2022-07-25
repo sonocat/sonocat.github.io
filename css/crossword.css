@@ -1,13 +1,9 @@
 #root {
-	background: yellow;
+	background: pink;
 }
 
 #lists {
 	background: lime;
-}
-
-ul, li {
-	list-style-type: none;
 }
 
 .puzzle {
