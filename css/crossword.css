@@ -63,8 +63,13 @@ li {
 }
 
 .strikeout::after {
+	border-bottom: 0.250em solid blue;
 	content: "";
-	text-decoration: line-through blue;
+	left: 0;
+	margin-top: calc(0.125em / 2 * -1);
+	position: absolute;
+	right: 0;
+	top: 50%;
 }
 
 .red-strikeout {
@@ -72,8 +77,13 @@ li {
 }
 
 .red-strikeout::after {
+	border-bottom: 0.250em solid red;
 	content: "";
-	text-decoration: line-through red;
+	left: 0;
+	margin-top: calc(0.250em / 2 * -1);
+	position: absolute;
+	right: 0;
+	top: 50%;
 }
 
 .crossword-grid-cell-number {
