@@ -19,7 +19,7 @@
 }
 
 .blank-cell {
-	background-color:#000000;
+	background-color:teal;
 }
 
 .clickable {
@@ -60,7 +60,7 @@
 }
 
 .red-strikeout::after {
-	border-bottom: 0.250em solid red;
+	border-bottom: 0.250em solid #000;
 	content: "";
 	left: 0;
 	margin-top: calc(0.250em / 2 * -1);
