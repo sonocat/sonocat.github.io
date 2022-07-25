@@ -1,6 +1,10 @@
+ul {
+	list-style-type: none;
+}
+
 .puzzle {
 	border-collapse: collapse;
-	border-color:#000000;
+	border-color: #000000;
 }
 
 .letter-cell {
