@@ -1,85 +1,265 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<title>SonoCat - Practical Guide to General Sonography</title>
+		<style type="text/css">
+			body {
+				background: #fff;
+				text-align: center;
+			}
+			
+			#container {
+				width: 90%;
+				margin: 0 auto;
+				font: 17px "Times New Roman";
+				line-height: 21px;
+				text-align: left;
+			}
 
-<head>
-	<title>100% JQuery, Open-Source Crossword Puzzle Generator and Game</title>
-	<meta http-equiv="content-type" content="text/css/javascript/php; charset=UTF-8">
+			.box {
+				font: 17px "Times New Roman";
+				line-height: 21px;
+			}
+			
+			.box h1 {
+				font: bold 27px Arial; 
+				text-decoration: underline;
+				line-height: 41px;
+				margin: 0;
+				text-align: center;
+			}
+			
+			.protocol_box {
+				overflow: auto;
+				font: 17px "Times New Roman";
+				line-height: 21px;
+			}
+			
+			.protocol_box h1 {
+				background-image: linear-gradient(to right, #003, #fff);
+				font: bold 19px Arial;
+				color: yellow;
+				text-transform: uppercase;
+				line-height: 33px; 
+				padding-left: 9px;
+				margin: 0;
+				border-bottom: 2px solid #000;
+			}
+			
+			.protocol_box ul, .box ul {
+				margin: 0;
+				padding: 0 29px;
+			}
+			
+			.ultrasound {
+				display: block;
+				float: right;
+				margin: 0 0 0 19px;
+				width: 350px;
+				text-align: center;
+				color: #fff;
+			}
+			
+			.ultrasound .top {
+				display: block;
+				height: 17px;
+			}
+			
+			.ultrasound .center {
+				display: block;
+				padding: 5px 5px 0 5px;
+				background: #000;
+				overflow-wrap: break-word;
+			}
+			
+			.ultrasound .bottom {
+				display: block;
+				height: 25px;
+				background-image: linear-gradient(rgba(0,0,0,1), rgba(255,255,255,0));
+			}
+			
+			.ultrasound img {
+				width: 80%;
+			}
+			
+			.ultrasound small {
+				display: block;
+				margin: 7px 0 0 0;
+			}
+			
+			.ultrasound small, .ultrasound a {
+				font-size: 12px;
+				line-height: 14px;
+				color: #999;
+			}
+			.diagram {
+				display: block;
+				margin: 0 auto;
+				padding: 9px;
+				width: 80%;
+				background: #fff;
+				border: 1px solid #777;
+				font-size: 17px;
+				text-align: center;
+				overflow-wrap: break-word;
+			}
+			.diagram small {
+				display: block;
+				margin: 7px 0 0 0;
+			}
+			.diagram small, .diagram a {
+				font-size: 15px;
+				line-height: 17px;
+				color: #777;
+			}
+			.diagram table {
+				width: 100%;
+				text-align: left;
+			}
+			.diagram td {
+				width: 33%;
+				padding: 0 7px 7px 0;
+				vertical-align: top;
+			}
+		</style>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/crossword.js"></script>
-
-<link type="text/css" rel="stylesheet" href="css/crossword.css">
-
-</head>
-
-<script type="text/javascript">
-
-	$(document).ready(function(event) {
-		var puzzlewords = [
-				// word, clue
-			['Incomplete', 'Some of us are always meant to be this.'],
-			['Ecosystem', 'Any system where life can grow and thrive.'],
-			['Rad', 'If it\'s totally far out, then it\'s also probably totally this.'],
-			['Love', 'Basis for all of human civilization.'],
-			['Peace', 'When no soul is trying to destroy another soul.'],
-			['Community', 'Where we come from and we we finally end.'],
-			['Justice', 'If anyone is missing this, then nobody really has it.'],
-			['Land', 'There is nothing sadder than a peasant without this.'],
-			['Equality', 'If we are to trust each other in society, we must have this between everyone.'],
-			['Fraternity', 'In Utopia, we are so friendly, it is like we are in one of these.'],
-			['Comrade', 'You call your friends this, because Mr. and Mrs. are Sexist, gender-dominating terms.'],
-			['Cooperative', 'If something is based on the opposite of Domination, it is called this.'],
-			['Voluntary', 'Not just free to arrive when you want, but free to leave when you want, too.'],
-			['Non-coercive', 'To do something in a way that requires no force at all.'],
-			['Horizontal', 'If top-down societies are vertical, then bottom-up societies are this.'],
-			['Wholesome', 'Your health, your family, and your community should be this.'],
-		];
-		crosswordPuzzle(puzzlewords);
-	});
-
-</script>
-
-<body>
-
-<div id="root" class="root">
-</div>
-
-<div id="lists" class="lists">
-
-	<table>
-	
-		<tr>
-			<td width="50%" id="left-list" valign="top" class="list-text">
-				<center>
-				<h3>Across</h3>
-				</center>
-			</td>
-			<td width="50%" id="right-list" valign="top" class="list-text">
-				<center>
-				<h3>Down</h3>
-				</center>
-			</td>
-		</tr>
-
-	</table>
-
-</div>
-
-<div id="answer-form">
-
-	<div class="short-margin">
-		
-		<p id="position-and-clue"></p>
-		
-		<p>Answer : <input id="solution-answer" type="text" size="40"></p>
-		
-		<p id="answer-results" class="hidden"></p>
-		
-		<p><input type="button" id="cancel-button" value="Cancel"> <input type="button" id="answer-button" value="Answer"> <input type="button" id="reveal-answer-button" value="Reveal Answer"></p>
-		
-	</div>
-
-</div>
-
-</body>
-
+	<body>
+		<div id="container">
+			
+			
+			
+			<div class="box">
+				<h1>OB First Trimester Protocol</h1>
+				<ul>
+					<li>This page illustrates the transvaginal portion for an intrauterine gestation up to 12 weeks.</li>
+					<li>Input the LMP to the machine and record the estimated gestation age.</li>
+				</ul>
+				<p></p>
+				
+				<span class="diagram">
+					
+					<br>Findings diagnostic of and suspicious for pregnancy failure<small>Source: https://doi.org/10.14366/usg.19043<br>Authors: V.A. Murugan, B. O’Sullivan Murphy, C. Dupuis, A. Goldstein, Y.H. Kim <br><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> / No changes made</small>
+				</span>
+				<p></p>
+			</div>
+			
+			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://prod-images-static.radiopaedia.org/images/27603522/b352113e3e6d04cc82b54dd8a0774b_big_gallery.jpeg"><br>Mean Sac Diameter of a Small Gestational Sac<small>Source: https://doi.org/10.53347/rID-50547<br>Author: Matt A. Morgan<br><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
+				<h1>Gestational Sac</h1>
+				<ul>
+					<li>Look for the gestational sac, which should be found at the uterine fundus and within the endometrium.</li>
+					<li>The normal gestational sac is usually seen around 5 weeks.</li>
+					<li>Note any fluid surrounding the gestational sac e.g. subchorionic hemorrhage.</li>
+					<p></p>
+					<b>Measurement images:</b> Take A/P, length, and width measurements, which are averaged to give the mean sac diameter (MSD).<br>
+					<b>Cine:</b> Sagittal and transverse clips through the gestational sac. 
+				</ul>
+				<p></p>
+			</div>
+			
+			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://prod-images-static.radiopaedia.org/images/627255/e915312053fd74c655a5fec93338a2_big_gallery.jpg"><br>Yolk Sac<small>Source: https://doi.org/10.53347/rID-12545<br>Author: Alexandra Stanislavsky<br><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NY-SA 3.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
+				<h1>Yolk Sac</h1>
+				<ul>
+					<li>Zoom in the screen and adjust the gain to show the normal yolk sac as a circular echogenic rim with an anechoic center.</li>
+					<li>The yolk sac is the first structure seen in a true gestational sac at around 5.5 weeks (and may no longer be visible after 10 weeks).</li>
+					<li>Diameter &lt;6 mm in early first trimester.</li>
+					<p></p>
+					<b>Measurement image:</b> Calipers placed vertically from inner to inner rim of the yolk sac. 
+				</ul>
+				<p></p>
+			</div>
+			
+			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://prod-images-static.radiopaedia.org/images/21832363/98675e83438216f377a88b46a8b764_big_gallery.jpeg"><br>Crown Rump Length<small>Source: https://doi.org/10.53347/rID-44715<br>Author: Alexandra Stanislavsky<br><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
+				<h1>Fetal Pole</h1>
+				<ul>
+					<li><i>Do not use color or Doppler over the embryo.</i></li>
+					<li>Zoom in the screen, which will help you to measure the fetal pole accurately.</li>
+					<li>The fetal pole is first seen around 5.5 to 6 weeks.</li>
+					<p></p>
+					<b>Measurement image:</b> Take the crown rump length (CRL) of the fetal pole in the long axis.  
+				</ul>
+				<p></p>
+			</div>
+			
+			<div class="protocol_box">
+				<span class="ultrasound">
+					<span class="top"></span>
+					<span class="center"><img src="https://raw.githubusercontent.com/sonocat/sonocat.github.io/main/protocols/ob1/FHR_PMID32036643.jpg"><br>Fetal Heart Rate<small>Source: https://doi.org/10.14366/usg.19043<br>Authors: V.A. Murugan, B. O’Sullivan Murphy, C. Dupuis, A. Goldstein, Y.H. Kim <br><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> / No changes made</small></span>
+					<span class="bottom"></span>
+				</span>
+				<h1>Heart Rate</h1>
+				<ul>
+					<li><i>Do not use color or Doppler over the embryo.</i></li>
+					<li>Optimize depth and zoom in the screen, and then use M-mode to measure the fetal heart rate.</li>
+					<li>Heart motion should be seen when the embryo is first visualized, once CRL measures at least 2 mm. It is abnormal when there is still no detectable heart motion at <a href="https://radiopaedia.org/articles/fetal-heart-beat">CRL &ge; 7 mm</a>.</li>
+					<li>Normal FHR &ge;110 bpm at early gestation up to <a href="https://radiopaedia.org/articles/fetal-heart-rate-in-the-first-and-second-trimester">170 bpm by 10-11 weeks</a>.</li>
+					<p></p>
+					<b>Measurement image:</b> Calipers placed on two consecutive peaks of the cardiac cycle on M-mode.<br>
+					<b>Cine:</b> Take at least one clip showing fetal heart motion.
+				</ul>
+				<p></p>
+			</div>
+			
+			
+			<div class="box">
+				<h1>Fetal Number</h1>
+				<ul>
+					<li>When there are multiple gestations in the first trimester, document the amnionicity and chorionicity, and repeat the above for the remaining gestational structures.</li>
+				</ul>
+			</div>
+			<p></p>
+			<div class="box">
+				<h1>Pelvic Structures of Note</h1>
+				<ul>
+					<li>A regular pelvic protocol is then performed to evaluate the uterus including cervix, ovaries, adnexa and cul-de-sac.</li>
+					<li>Special attention is made to the cervix, which should be closed. See <a href="https://radiopaedia.org/articles/inevitable-miscarriage">imminent abortion</a>.</li>
+					<li>The corpus luteum should be seen in one of the ovaries in the first trimester.</li>
+					<li>The endometrium is no longer measured.</li>
+				</ul>
+				<p></p>
+			</div>
+			
+			
+			<div class="protocol_box">
+				<h1>Worksheet</h1>
+				<ul>
+					<li>Print the worksheet containing measurements.</li>
+				</ul>
+			</div>
+			
+			<div class="box">
+				<h1>End</h1>
+				<ul>
+				</ul>
+				<p></p>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</body>
 </html>
